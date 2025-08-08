@@ -8,7 +8,6 @@ GITHUB_ORG="pactflow"
 PACTICIPANT="pactflow-example-consumer"
 GITHUB_WEBHOOK_UUID := "04510dc1-7f0a-4ed2-997d-114bfa86f8ad"
 PACT_CLI="docker run --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli"
-PACT_BROKER_BASE_URL="https://charnley-test-29ff.pactflow.io"
 
 .EXPORT_ALL_VARIABLES:
 GIT_COMMIT?=$(shell git rev-parse HEAD)
@@ -76,7 +75,7 @@ can_i_deploy: .env
 	  --to-environment ${ENVIRONMENT} \
 	  --retry-while-unknown 30 \
 	  --retry-interval 10
-	  --broker-base-url=${PACT_BROKER_BASE_URL}
+	  --broker-base-url=https://charnley-test-29ff.pactflow.io
 
 deploy_app:
 	@echo "\n========== STAGE: deploy ==========\n"

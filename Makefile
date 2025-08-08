@@ -74,7 +74,8 @@ can_i_deploy: .env
 	  --version ${GIT_COMMIT} \
 	  --to-environment production \
 	  --retry-while-unknown 5 \
-	  --retry-interval 15
+	  --retry-interval 15 \
+	  --output json | jq -r '.matrix[].verificationResult._links.self.href'
 
 deploy_app:
 	@echo "\n========== STAGE: deploy ==========\n"

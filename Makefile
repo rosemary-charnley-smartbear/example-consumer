@@ -74,7 +74,7 @@ can_i_deploy: .env
 	  --version ${GIT_COMMIT} \
 	  --to-environment ${ENVIRONMENT} \
 	  --retry-while-unknown 30 \
-	  --retry-interval 10
+	  --retry-interval 10 \
 	  --broker-base-url=https://charnley-test-29ff.pactflow.io
 
 deploy_app:

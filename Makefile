@@ -72,9 +72,10 @@ can_i_deploy: .env
 	@"${PACT_CLI}" broker can-i-deploy \
 	  --pacticipant ${PACTICIPANT} \
 	  --version ${GIT_COMMIT} \
-	  --to-environment production \
+	  --to-environment ${ENVIRONMENT} \
 	  --retry-while-unknown 30 \
 	  --retry-interval 10
+	  --broker-base-url=${PACT_BROKER_BASE_URL}
 
 deploy_app:
 	@echo "\n========== STAGE: deploy ==========\n"
